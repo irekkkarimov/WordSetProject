@@ -1,0 +1,15 @@
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\obj\Debug\net6.0\WordSetProject.csproj.AssemblyReference.cache
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\obj\Debug\net6.0\WordSetProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\obj\Debug\net6.0\WordSetProject.AssemblyInfoInputs.cache
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\obj\Debug\net6.0\WordSetProject.AssemblyInfo.cs
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\obj\Debug\net6.0\WordSetProject.csproj.CoreCompileInputs.cache
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\bin\Debug\net6.0\WordSetProject.exe
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\bin\Debug\net6.0\WordSetProject.deps.json
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\bin\Debug\net6.0\WordSetProject.runtimeconfig.json
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\bin\Debug\net6.0\WordSetProject.dll
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\bin\Debug\net6.0\WordSetProject.pdb
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\obj\Debug\net6.0\WordSetProject.dll
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\obj\Debug\net6.0\refint\WordSetProject.dll
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\obj\Debug\net6.0\WordSetProject.pdb
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\obj\Debug\net6.0\WordSetProject.genruntimeconfig.cache
+C:\Users\Booba\RiderProjects\WordSetProject\WordSetProject\obj\Debug\net6.0\ref\WordSetProject.dll
