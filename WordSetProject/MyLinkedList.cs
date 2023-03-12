@@ -2,64 +2,65 @@ using System.Collections;
 namespace WordSetProject;
 
 
-public class Node
+public class Node<T>
 {
-    public readonly string Value;
-    public Node Next;
+    public readonly T Value;
+    public Node<T> Next;
 
-    public Node(string value)
+    public Node(T value)
     {
         Value = value;
     }
 }
 
 
-public class MyLinkedList : IEnumerable<Node>
+public class MyLinkedList<T> : IEnumerable<Node<T>>
 {
-    public Node Head;
-    public Node Tail;
-    public readonly int? WordLength;
+    public Node<T> Head;
+    public Node<T> Tail;
 
-    public MyLinkedList(string[] arr, int? wordLength)
+    public MyLinkedList()
     {
-        WordLength = wordLength;
-        foreach (var word in arr)
+        Head = null;
+        Tail = Head;
+    }
+
+    public void AddFirst(T word)
+    {
+        if (Head == null)
         {
-            ArgumentThrower(word);
-            if (Head == null)
-            {
-                Head = new Node(word);
-                Tail = Head;
-            }
-            
-            AddLast(word);
+            Head = new Node<T>(word);
+            Tail = Head;
+        }
+        else
+        {
+            var temp = new Node<T>(word);
+            temp.Next = Head;
+            Head = temp;
         }
     }
 
-    public void AddFirst(string word)
-    {   
-        ArgumentThrower(word);
-        var temp = new Node(word);
-        temp.Next = Head;
-        Head = temp;
-    }
-    
-    public void AddLast(string word)
+    public void AddLast(T word)
     {
-        ArgumentThrower(word);
-        Tail.Next = new Node(word);
-        Tail = Tail.Next;
+        if (Head == null)
+        {
+            AddFirst(word);
+        }
+        else
+        {
+            Tail.Next = new Node<T>(word);
+            Tail = Tail.Next;
+        }
     }
 
-    public void AddAfter(Node node, string word)
+    public void AddAfter(Node<T> node, T word)
     {
-        ArgumentThrower(word);
-        var temp = new Node(word);
-        temp.Next = node.Next.Next;
+        var temp = new Node<T>(word);
+        temp.Next = node.Next;
         node.Next = temp;
     }
 
-    public string RemoveFirst()
+    public T RemoveFirst()
     {
         if (Head == null) throw new ArgumentException();
         var temp = Head.Value;
@@ -68,9 +69,9 @@ public class MyLinkedList : IEnumerable<Node>
         return temp;
     }
 
-    public string RemoveLast()
+    public T RemoveLast()
     {
-        string result;
+        T result;
         if (Head == null) throw new ArgumentException();
         if (Head == Tail) return RemoveFirst();
         
@@ -90,7 +91,7 @@ public class MyLinkedList : IEnumerable<Node>
         return result;
     }
 
-    public string RemoveAfter(Node node)
+    public T RemoveAfter(Node<T> node)
     {
         if (node.Next == null) throw new ArgumentException();
         if (node == null) RemoveFirst();
@@ -100,39 +101,26 @@ public class MyLinkedList : IEnumerable<Node>
         return result;
     }
 
-    // In case if there will be need to check for digits
-    public static bool IfContainsOnlyLetters(string word)
+    
+    public bool IsEmpty()
     {
-        if (word.Length == 0) throw new ArgumentException();
-        foreach (var symbol in word)
-        {
-            if (Char.IsLetter(symbol))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public void ArgumentThrower(string word)
-    {
-        if (!IfContainsOnlyLetters(word)) throw new ArgumentException("The string argument was not a word");
-        if (WordLength != null && word.Length <= WordLength)
-            throw new ArgumentException();
+        return (Head == null);
     }
     
-    public IEnumerator<Node> GetEnumerator()
+    public IEnumerator<Node<T>> GetEnumerator()
     {
+        if (IsEmpty()) yield break;
+        
         var current = Head;
-
-        while (current != null)
+        while (current.Next != null)
         {
             yield return current;
             current = current.Next;
         }
-    }
 
+        yield return current;
+    }
+    
     IEnumerator IEnumerable.GetEnumerator()
     {
         return GetEnumerator();
